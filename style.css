@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&family=Caveat&family=Dosis&family=Fontdiner+Swanky&family=IBM+Plex+Sans&family=Merienda&family=Nosifer&family=Rubik+Maze&family=Shantell+Sans&family=Signika+Negative&family=Six+Caps&family=Stick+No+Bills&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Contrail+One&family=Ewert&family=Faster+One&family=Fredericka+the+Great&family=Inspiration&family=Nabla&family=Petit+Formal+Script&family=Sancreek&family=Smokum&family=Stint+Ultra+Condensed&display=swap');
+
+
+* { 
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(
+        76deg,
+        rgba(245, 245, 220, 0.94) 18.8%,
+        rgba(160, 81, 45, 0.878) 33.6%,
+        #691010e1 58.7%,
+        rgba(139, 0, 0, 0.76) 77.4%,
+        rgba(184, 135, 11, 0.825) 95.3%
+    );
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fontdiner Swanky', sans-serif;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    background-color: beige;
+    border: 3px solid sienna;
+    border-radius: 16px;
+    color: sienna;
+    padding: 10px 20px;
+    letter-spacing: 2px;;
+    font-family: 'Ewert', sans-serif;
+    box-shadow: 2px 2px 8px 3px rgba(0, 0, 0, 0.5);
+}
+
+.music-container {
+    background-color: beige;
+    border-radius: 15px;
+    box-shadow: 0 20px 20px 0 rgba(20, 7, 1, 0.929);
+    display: flex;
+    padding: 20px 30px;
+    position: relative;
+    margin: 100px 0;
+    z-index: 10;
+}
+
+.img-container {
+    position: relative;
+    width: 110px;
+}
+
+.img-container::after {
+    content: '';
+    background-color: silver;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, 50%);
+}
+
+.img-container img {
+    border-radius: 50%;
+    object-fit: cover;
+    height: 110px;
+    width: inherit;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: rotate 3s linear infinite;
+    animation-play-state: paused;
+}
+
+.music-container.play .img-container img {
+    animation-play-state: running;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.action-btn {
+    background-color: sienna;
+    border: 0;
+    color: beige;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 20px;
+    border-radius: 25px;
+}
+
+.action-btn:active {
+    transform: scale(0.95);
+}
+
+.action-btn.action-btn-big {
+    color: silver;
+    font-size: 30px;
+}
+
+.music-info {
+    background-color: rgba(184, 135, 11, 0.551);
+    border-radius: 15px 15px 0 0;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: calc(100% - 40px);
+    padding: 10px 10px 10px 150px;
+    opacity: 0;
+    transform: translateY(0%);
+    transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+    z-index: 0;
+}
+
+.music-container.play .music-info {
+    opacity: 1;
+    transform: translateY(-100%);
+}
+
+.music-info h4 {
+    margin: 0;
+}
+
+.progress-container {
+    background: beige;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+    height: 4px;
+    width: 100%;
+}
+
+.progress {
+    background-color: darkred;
+    border-radius: 5px;
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s linear;
+}
